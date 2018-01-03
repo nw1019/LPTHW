@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+body {
+    background-image: url("static/raw.gif");
+}
+div { color: yellow;
+	text-indent: 80px;
+	word-spacing: 10px;
+	margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 300px;
+	 }
+</style>
+<div>
+<h1>You Died!</h1>
+<p>Looks like you bit the dust.</p>
+<p><a href="/">Play Again?</a></p>
+
+<img src="static/Death.png" width="250" height="300" style="width:304px;height:278px;">
+</div>
+{% endblock %}

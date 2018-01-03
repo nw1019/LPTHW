@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+h1 {
+	font-size: 24px;
+	margin-top: 200px;
+	margin-left: 100px;
+}
+.button {
+	border: none;
+	color: #666;
+	padding:15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin-top: 320px;
+	margin-left: 100px;
+}
+/*DropDown*/
+.dropbtn {
+	background-color:#FFF;
+	border: none;
+	color: #666;
+	padding:15px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 14px;
+	margin-top: 0px;
+	margin-left: 0px;
+}
+.dropdown {
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    /*position: absolute;    */
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+
+}
+.dropdown-content a {
+    color: black;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+	color:#333;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .dropbtn {
+    color: #333;
+}
+body {
+    background-image: url("static/star.gif");
+	color: yellow;
+	text-indent: 125px;
+	word-spacing: 10px;
+	margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 300px;
+}
+</style>
+
+{% if scene %}
+
+
+
+{% if scene.urlname == "death" %}
+<pre>{{ scene.description }}</pre>
+<p><a href="/">Play Again?</a></p>
+<form action="/game" method="POST">
+
+{% else %}
+<div all>
+
+<h1> {{ scene.title }} </h1>
+<pre>{{ scene.description }}</pre>
+<div class="dropdown">
+<img src="static/help-icon.png" width="50" height="50">
+  <!-- <button class="dropbtn"> Input Help? </button> -->
+  <div class="dropdown-content">
+    <pre>{{ scene.helpdes }}</pre>
+    </div>
+<p>
+<form action="/game" method="POST">
+What do you do? <input type="text" name="userinput">
+ <input type="SUBMIT">
+
+</form>
+
+</p>
+
+
+{% endif %}
+{% else %}
+<p><a href="/">Start at the Beginning</a></p>
+{% endif %}
+
+
+{% endblock %}
